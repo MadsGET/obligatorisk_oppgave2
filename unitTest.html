@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Test Suite</title>
+	<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.11.2.css">
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script src="https://code.jquery.com/qunit/qunit-2.11.2.js"></script>
+	<script src="script.js"></script>
+	<script>
+
+		// #1a Velge en stolpe
+		QUnit.test("Velge en stolpe", function (assert) {
+			var chosenBar = 0;
+			var value = 3;
+			const actual = setElementSelection(value, chosenBar);
+			const expected = 3;
+			assert.equal(actual, expected, 'Sendte: ' + value + ' Forventet: ' + expected + ' Actual: ' + actual);
+		});
+
+		// #1b Avvelge en stolpe 
+		QUnit.test("Avvelge en stolpe", function (assert) {
+			var chosenBar = 3;
+			var value = 3;
+			const actual = setElementSelection(value, chosenBar);
+			const expected = -1;
+			assert.equal(actual, expected, 'Sendte: ' + value + ' Forventet: ' + expected + ' Actual: ' + actual);
+		});
+
+		//#2 Slette en stolpe
+		QUnit.test("Slette en stolpe", function (assert) {
+			var array = [3, 1, 8];
+			var value = 0;
+			const actual = removeElement(value, array);
+			const expected = 3;
+			assert.equal(actual, expected, 'Sendte: ' + value + ' Forventet: ' + expected + ' Actual: ' + actual);
+		});
+
+		//#3 Endre en stolpe
+		QUnit.test("Endre en stolpe", function (assert) {
+			var value = 10;
+			const actual = modifyElement(value);
+			const expected = true;
+			assert.equal(actual, expected, 'Sendte: ' + value + ' Forventet: ' + expected + ' Actual: ' + actual);
+		});
+
+		//#4 Legge til en stolpe
+		QUnit.test("Legge til en stolpe", function (assert) {
+			var array = [3, 1, 8];
+			var value = 10;
+			const actual = addElement(array, 9);
+			const expected = 4;
+			assert.equal(actual, expected, 'Sendte: ' + value + ' Forventet: ' + expected + ' Actual: ' + actual);
+		});
+
+	</script>
+</body>
+</html>
